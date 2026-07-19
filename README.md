@@ -13,8 +13,6 @@ detection, executive summarization, and a deterministic decision engine with
 human-in-the-loop escalation — built on **LangGraph**, **Google Gemini 2.5
 Flash**, and **Streamlit**.
 
-> Built as a demonstration project for evaluation by IIT Guwahati industry
-> experts. Not a real insurance carrier; does not process real policies.
 
 ---
 

@@ -1,0 +1,22 @@
+# .streamlit/config.toml
+#
+# Native Streamlit theming to match the "Underwriter's Ledger" dark theme
+# defined in app/styles/theme.css. Streamlit applies this to its own
+# chrome (widgets, containers) before our custom CSS layers on top.
+
+[theme]
+base = "dark"
+primaryColor = "#D8A94E"
+backgroundColor = "#0B0F17"
+secondaryBackgroundColor = "#131A26"
+textColor = "#E9EDF3"
+font = "sans serif"
+
+[server]
+headless = true
+enableCORS = false
+enableXsrfProtection = true
+maxUploadSize = 10
+
+[browser]
+gatherUsageStats = false

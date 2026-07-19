@@ -1,0 +1,22 @@
+{
+  "description": "Scenario 4: Suspicious claim (fresh policy + frequent claimant + high ratio) -> Human Approval",
+  "policy_number": "POL-100237",
+  "policy_holder_name": "Vikram Malhotra",
+  "policy_start_date": "2026-07-13",
+  "policy_end_date": "2027-07-13",
+  "max_coverage_amount": 1000000,
+  "waiting_period_days": 0,
+  "claim_type": "MOTOR",
+  "incident_date": "2026-07-17",
+  "incident_location": "Delhi, DL",
+  "incident_description": "Vehicle stolen from parking lot overnight, reported to police the next morning.",
+  "claim_amount": 800000,
+  "previous_claims_count": 5,
+  "documents": [
+    "POLICY_DOCUMENT",
+    "IDENTITY_PROOF",
+    "POLICE_REPORT",
+    "INCIDENT_PHOTO",
+    "INVOICE_RECEIPT"
+  ]
+}

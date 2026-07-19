@@ -1,0 +1,24 @@
+# Enterprise AI Insurance Claim Processing Agent -- dependencies
+# Tested with Python 3.11 / 3.12
+
+# --- AI / LLM orchestration ---
+langgraph>=0.6.9
+langchain-core>=0.3.65
+langchain-google-genai>=2.0.10
+
+# --- Data validation & config ---
+pydantic>=2.9.0
+pydantic-settings>=2.6.0
+python-dotenv>=1.0.1
+
+# --- Document processing ---
+pypdf>=5.0.0
+fpdf2>=2.8.1
+
+# --- Frontend ---
+streamlit>=1.38.0
+pandas>=2.2.0
+
+# --- Testing ---
+pytest>=8.3.0
+pytest-mock>=3.14.0

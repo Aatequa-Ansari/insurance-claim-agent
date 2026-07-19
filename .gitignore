@@ -1,0 +1,50 @@
+# --- Environment / secrets ---
+.env
+.env.local
+*.env
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# --- Virtual environments ---
+.venv/
+venv/
+env/
+ENV/
+
+# --- Testing / coverage ---
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.mypy_cache/
+.ruff_cache/
+
+# --- Streamlit ---
+.streamlit/secrets.toml
+
+# --- Logs & generated reports (runtime output, not source) ---
+logs/*.log
+logs/*.log.*
+reports/*.json
+reports/*.pdf
+!reports/.gitkeep
+!logs/.gitkeep
+
+# --- OS / editor ---
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+
+# --- Jupyter ---
+.ipynb_checkpoints/

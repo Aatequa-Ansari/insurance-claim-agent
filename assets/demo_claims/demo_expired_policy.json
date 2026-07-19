@@ -1,0 +1,21 @@
+{
+  "description": "Scenario 3: Expired policy -> Reject",
+  "policy_number": "POL-100236",
+  "policy_holder_name": "Priya Nair",
+  "policy_start_date": "2024-05-09",
+  "policy_end_date": "2026-06-18",
+  "max_coverage_amount": 500000,
+  "waiting_period_days": 0,
+  "claim_type": "HEALTH",
+  "incident_date": "2026-07-08",
+  "incident_location": "Kochi, KL",
+  "incident_description": "Hospitalization for appendicitis surgery, 3-day stay.",
+  "claim_amount": 120000,
+  "previous_claims_count": 0,
+  "documents": [
+    "POLICY_DOCUMENT",
+    "IDENTITY_PROOF",
+    "MEDICAL_REPORT",
+    "INVOICE_RECEIPT"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "description": "Scenario 2: Missing required documents -> Reject",
+  "policy_number": "POL-100235",
+  "policy_holder_name": "Rahul Verma",
+  "policy_start_date": "2024-05-09",
+  "policy_end_date": "2027-07-18",
+  "max_coverage_amount": 800000,
+  "waiting_period_days": 0,
+  "claim_type": "MOTOR",
+  "incident_date": "2026-07-08",
+  "incident_location": "Mumbai, MH",
+  "incident_description": "Side collision while parking; door panel dented.",
+  "claim_amount": 30000,
+  "previous_claims_count": 0,
+  "documents": []
+}

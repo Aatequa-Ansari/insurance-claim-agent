@@ -1,0 +1,212 @@
+/*
+  theme.css -- "Underwriter's Ledger" theme
+
+  Design concept: a deep-ink claims desk at night -- the kind of quiet,
+  authoritative room where a policy actually gets decided. Ink/slate
+  background, a brass/amber accent standing in for an underwriter's stamp,
+  and a monospace ledger face for anything numeric (claim IDs, amounts,
+  scores) so the data reads like entries in a real ledger.
+
+  Palette:
+    --ink        #0B0F17  (page background)
+    --panel      #131A26  (card surface)
+    --panel-2    #1B2432  (nested / hover surface)
+    --hairline   #263042  (borders)
+    --brass      #D8A94E  (primary accent -- the "stamp")
+    --brass-dim  #8A6A2E
+    --approve    #3FB68B
+    --reject     #E1584F
+    --review     #E8A33D
+    --ink-text   #E9EDF3  (primary text)
+    --muted-text #8C97A8  (secondary text)
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap');
+
+:root {
+    --ink: #0B0F17;
+    --panel: #131A26;
+    --panel-2: #1B2432;
+    --hairline: #263042;
+    --brass: #D8A94E;
+    --brass-dim: #8A6A2E;
+    --approve: #3FB68B;
+    --reject: #E1584F;
+    --review: #E8A33D;
+    --ink-text: #E9EDF3;
+    --muted-text: #8C97A8;
+}
+
+/* ---- Base ---- */
+.stApp {
+    background: radial-gradient(circle at 10% -10%, #16202f 0%, var(--ink) 45%) fixed;
+    color: var(--ink-text);
+    font-family: 'Inter', -apple-system, sans-serif;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Space Grotesk', sans-serif !important;
+    letter-spacing: -0.01em;
+    color: var(--ink-text) !important;
+}
+
+[data-testid="stSidebar"] {
+    background: linear-gradient(180deg, #0E1420 0%, #0B0F17 100%);
+    border-right: 1px solid var(--hairline);
+}
+
+[data-testid="stSidebar"] * { color: var(--ink-text) !important; }
+
+/* ---- Ledger monospace for numeric / identifier content ---- */
+.ledger, .ledger * {
+    font-family: 'IBM Plex Mono', monospace !important;
+    letter-spacing: 0.01em;
+}
+
+/* ---- Brand header ---- */
+.brand-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 6px 0 18px 0;
+    border-bottom: 1px solid var(--hairline);
+    margin-bottom: 22px;
+}
+.brand-seal {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    border: 2px solid var(--brass);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700; font-size: 18px;
+    color: var(--brass);
+    box-shadow: 0 0 0 3px rgba(216,169,78,0.08);
+}
+.brand-title { font-size: 1.35rem; font-weight: 700; margin: 0; }
+.brand-subtitle { font-size: 0.8rem; color: var(--muted-text); margin: 0; }
+
+/* ---- Cards ---- */
+.card {
+    background: var(--panel);
+    border: 1px solid var(--hairline);
+    border-radius: 14px;
+    padding: 20px 22px;
+    margin-bottom: 16px;
+}
+.card-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--brass);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 10px;
+}
+
+/* ---- Metric tiles ---- */
+.metric-tile {
+    background: var(--panel);
+    border: 1px solid var(--hairline);
+    border-radius: 14px;
+    padding: 16px 18px;
+    text-align: left;
+}
+.metric-value {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 1.7rem;
+    font-weight: 600;
+    color: var(--ink-text);
+}
+.metric-label {
+    font-size: 0.75rem;
+    color: var(--muted-text);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-top: 2px;
+}
+
+/* ---- Status chips ---- */
+.chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 12px;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    border: 1px solid transparent;
+}
+.chip-approved { background: rgba(63,182,139,0.12); color: var(--approve); border-color: rgba(63,182,139,0.4); }
+.chip-rejected { background: rgba(225,88,79,0.12); color: var(--reject); border-color: rgba(225,88,79,0.4); }
+.chip-review   { background: rgba(232,163,61,0.12); color: var(--review); border-color: rgba(232,163,61,0.4); }
+.chip-pending  { background: rgba(140,151,168,0.12); color: var(--muted-text); border-color: rgba(140,151,168,0.35); }
+
+/* ---- Decision stamp (signature element) ---- */
+.stamp-wrap { display: flex; justify-content: center; padding: 18px 0 6px 0; }
+.stamp {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 14px 34px;
+    border: 3px solid currentColor;
+    border-radius: 10px;
+    transform: rotate(-4deg);
+    display: inline-block;
+    animation: stamp-in 0.35s cubic-bezier(.2,1.4,.4,1) both;
+    box-shadow: 0 0 0 3px currentColor inset, 0 6px 18px rgba(0,0,0,0.35);
+}
+.stamp-approved { color: var(--approve); }
+.stamp-rejected { color: var(--reject); }
+.stamp-review   { color: var(--review); }
+
+@keyframes stamp-in {
+    0% { opacity: 0; transform: rotate(-4deg) scale(1.6); }
+    100% { opacity: 1; transform: rotate(-4deg) scale(1); }
+}
+
+/* ---- Timeline ---- */
+.timeline { border-left: 2px solid var(--hairline); margin-left: 8px; padding-left: 20px; }
+.timeline-item { position: relative; padding-bottom: 18px; }
+.timeline-item::before {
+    content: '';
+    position: absolute; left: -26px; top: 3px;
+    width: 10px; height: 10px; border-radius: 50%;
+    background: var(--brass);
+    box-shadow: 0 0 0 3px rgba(216,169,78,0.15);
+}
+.timeline-node { font-family: 'IBM Plex Mono', monospace; font-size: 0.78rem; color: var(--brass); }
+.timeline-msg { font-size: 0.88rem; color: var(--ink-text); margin-top: 2px; }
+.timeline-time { font-size: 0.72rem; color: var(--muted-text); }
+
+/* ---- Buttons ---- */
+.stButton > button, .stDownloadButton > button {
+    background: var(--brass) !important;
+    color: #17110A !important;
+    border: none !important;
+    border-radius: 8px !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.02em;
+}
+.stButton > button:hover, .stDownloadButton > button:hover {
+    background: #E7BC6E !important;
+}
+
+/* Secondary / ghost buttons via kwargs type="secondary" */
+.stButton > button[kind="secondary"] {
+    background: transparent !important;
+    color: var(--ink-text) !important;
+    border: 1px solid var(--hairline) !important;
+}
+
+/* ---- Progress ---- */
+.stProgress > div > div > div { background: var(--brass) !important; }
+
+/* ---- Divider ---- */
+hr { border-color: var(--hairline) !important; }
+
+/* ---- Fraud gauge label ---- */
+.gauge-label { text-align: center; font-family: 'IBM Plex Mono', monospace; margin-top: -6px; }
